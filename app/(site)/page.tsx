@@ -1,30 +1,59 @@
 import { getProjects } from "@/sanity/sanity-utils"
+import { getLatestProjects } from "@/sanity/sanity-utils";
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+
 
 export default async function Home() {
-  const projects = await getProjects();
+  const projects = await getLatestProjects();
 
   return (
-    <div>
-      <h1 className="text-7xl font-extrabold">Hello I&apos;m
-        <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent"> Kapehe!</span>
-      </h1>
-      <p className="mt-3 text-xl text-gray-600">Aloha everyone! Check out my projects!</p>
-      <h2 className="mt-24 font-bold text-gray-700 text-3xl">My Projects</h2>
+    <div className="max-w-2xl mx-auto px-7 sm:px-8 mt-28">
+      <header className="flex flex-col mb-12 sm:mb-16 font-mono">
+        <p className="text-base prose text-red-500 dark:text-red-400">Hello, I&apos;m</p>
+        <h1 className="mb-1 text-5xl font-bold tracking-normal sm:text-7xl sm:mb-4 text-teal-800 dark:text-teal-600">
+            Renz Aljon Cruz
+        </h1>
+        <h2 className="text-2xl prose sm:text-4xl text-slate-500 dark:text-slate-200">I&apos;m a Frontend Software Engineer.</h2>
+        <ul className="flex text-gray-600 dark:text-gray-400 text-2xl gap-x-5 pt-2">
+          <li>
+            <a href="https://www.facebook.com/profile.php?id=100066723944685" target="_blank" rel="noopener noreferrer">
+              <FaFacebook />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/rarc_0524" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/renz-aljon-cruz-ba13bb286" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/RenzAljon24" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+            </a>
+          </li>
+        </ul>
+      </header>
+      
+      <h2 className="mt-24 font-bold text-gray-700 text-2xl py-2 dark:text-slate-200">Latest Projects</h2>
 
-      <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">{projects.map((project) => (
-        <Link href={`/projects/${project.slug}`} key={project._id} className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition">
+      <div className=" flex flex-col space-y-4 mb-10">{projects.map((project) => (
+        <Link href={`/projects/${project.slug}`} key={project._id} className="border-2 border-gray-500 rounded-lg p-1 hover:border-blue-500 transition ">
           {project.image && (
             <Image
               src={project.image}
               alt={project.name}
               width={750}
-              height={300}
+              height={200}
               className="object-cover rounded-lg border border-gray-500"
             />
           )}
-          <div className="mt-2 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
+          <div className="mt-2 font-extrabold">
             {project.name}
           </div>
         </Link>
