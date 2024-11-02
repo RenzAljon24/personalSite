@@ -17,7 +17,7 @@ const Header = () => {
     <header className='fixed top-0 w-full bg-white/30 backdrop-blur-md  p-5  dark:bg-slate-900 dark:shadow-none'>
       <div className='flex justify-between mx-5 md:mx-20 p-2'>
           <div>
-              <h1 className='text-2xl text-center'>RARC</h1>
+              <h1 className='text-2xl text-center p-2 sm:pt-2'>RARC</h1>
           </div>
           <div className='flex items-center text-center space-x-5 '>
             {/* navigation links */}
