@@ -16,6 +16,9 @@ export default async function Projects() {
 
         <div className=" flex flex-col space-y-4 mb-10">{projects.map((project) => (
         <Link href={`/projects/${project.slug}`} key={project._id} className="border-2 border-gray-500 rounded-lg p-1 hover:border-blue-500 transition">
+          <div className="m-2 ">
+            <h2 className="font-extrabold">{project.name}</h2> 
+          </div>
           {project.image && (
             <Image
               src={project.image}
@@ -25,9 +28,6 @@ export default async function Projects() {
               className="object-cover rounded-lg border border-gray-500"
             />
           )}
-          <div className="mt-2 font-extrabold">
-            {project.name}
-          </div>
         </Link>
       ))}
       </div>

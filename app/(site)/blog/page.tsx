@@ -2,6 +2,7 @@ import { getProjects } from "@/sanity/sanity-utils"
 import Link from "next/link";
 import Image from "next/image";
 import { getBlogs } from "@/sanity/sanity-utils";
+import { formatDate } from "@/lib/utils";
 
 export default async function Blogs() {
   const blogs = await getBlogs();
@@ -18,6 +19,10 @@ export default async function Blogs() {
 
         <div className=" flex flex-col space-y-4 mb-10">{blogs.map((blog) => (
         <Link href={`/blog/${blog.slug}`} key={blog._id} className="border-2 border-gray-500 rounded-lg p-1 hover:border-blue-500 transition">
+          <div className="mb-2 ml-2 ">
+            <h1 className="font-mono mt-1 ">published: {formatDate(blog._createdAt)}</h1>
+            <h1 className="font-extrabold">{blog.name}</h1>
+          </div>
           {blog.image && (
             <Image
               src={blog.image}
@@ -27,9 +32,6 @@ export default async function Blogs() {
               className="object-cover rounded-lg border border-gray-500"
             />
           )}
-          <div className="mt-2 font-extrabold">
-            {blog.name}
-          </div>
         </Link>
       ))}
       </div>

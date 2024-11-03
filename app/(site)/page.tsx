@@ -1,5 +1,7 @@
-import { getProjects } from "@/sanity/sanity-utils"
+
+import { formatDate } from "@/lib/utils";
 import { getLatestProjects } from "@/sanity/sanity-utils";
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
@@ -38,24 +40,26 @@ export default async function Home() {
             </a>
           </li>
         </ul>
+        
       </header>
       
       <h2 className="mt-24 font-bold text-gray-700 text-2xl py-2 dark:text-slate-200">Latest Projects</h2>
 
       <div className=" flex flex-col space-y-4 mb-10">{projects.map((project) => (
+       
         <Link href={`/projects/${project.slug}`} key={project._id} className="border-2 border-gray-500 rounded-lg p-1 hover:border-blue-500 transition ">
+          <div className="m-2 ">
+            <h2 className="font-extrabold">{project.name}</h2> 
+          </div>
           {project.image && (
             <Image
               src={project.image}
-              alt={project.name}
-              width={750}
-              height={200}
-              className="object-cover rounded-lg border border-gray-500"
+              alt='placeholder'
+              width={500}  
+              height={400} 
+              className="object-cover rounded-lg border border-gray-500  w-full sm:h-[300px]"
             />
           )}
-          <div className="mt-2 font-extrabold">
-            {project.name}
-          </div>
         </Link>
       ))}
       </div>

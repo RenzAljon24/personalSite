@@ -10,7 +10,7 @@ export default async function Project({ params }: Props) {
   const slug = params.project;
   const project = await getProject(slug);
 
-  return <div className="max-w-2xl mx-auto px-5 sm:px-8">
+  return <div className="max-w-2xl mx-auto px-5 sm:px-8 mb-10">
     <header className="flex items-center justify-between mt-32">
       <h1 className="text-slate-700 dark:text-slate-200 text-2xl md:text-5xl font-extrabold">{project.name}</h1>
       <a href={project.url} title="View Project" target="_blank" rel="noopener noreferrer" className="rounded-lg text-slate-200 font-bold py-3 px-4 whitespace-nowrap bg-slate-500 hover:text-pink-100 transition">
