@@ -7,7 +7,7 @@ import { AppSidebar } from '@/components/sidebar';
 import { Suspense } from 'react';
 import Loading from './Loading';
 import Footer from '@/components/Footer';
-import { Metadata } from 'next';
+
 
 
 
