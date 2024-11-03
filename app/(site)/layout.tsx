@@ -11,36 +11,32 @@ import { Metadata } from 'next';
 
 
 
-export async function generateMetadata({ params }): Promise<Metadata> {
-  const description = `Discover  - a unique section of Renz's portfolio showcasing software engineering projects.`;
- 
+export const metadata = {
+  title: 'Renz - Software Developer',
+  description: 'Discover a unique section of Renz’s portfolio showcasing software engineering projects.',
+  openGraph: {
+    title: 'Renz - Software Developer',
+    description: 'A unique section of Renz.dev portfolio showcasing software engineering projects.',
+    url: 'https://renz-site.vercel.app',
+    images: [
+      {
+        url: 'https://og-image-luigircruz.vercel.app/Renz.Dev.png?theme=light&packageManager=&packageName=&pattern=architect&style=style_1&description=Frontend+Software+Engineer&md=1&showWatermark=0&fontSize=100px&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI%2BCiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8%2BCiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8%2BCiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8%2BCiAgPC9nPgo8L3N2Zz4K%27',
+        width: 1200,
+        height: 630,
+        alt: ' - Preview Image',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Renz - Software Developer',
+    description: 'Discover a unique section of Renz’s portfolio showcasing software engineering projects.',
+    images: [
+      'https://og-image-luigircruz.vercel.app/Renz.Dev.png?theme=light&packageManager=&packageName=&pattern=architect&style=style_1&description=Frontend+Software+Engineer&md=1&showWatermark=0&fontSize=100px&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI%2BCiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8%2BCiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8%2BCiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8%2BCiAgPC9nPgo8L3N2Zz4K%27',
+    ],
+  },
+};
 
-
-  return {
-    title:'Renz - Software Developer',
-    description,
-    openGraph: {
-      
-      description: 'a unique section of Renz.dev portfolio showcasing software engineering projects.',
-      url: `https://renz-site.vercel.app`,
-      images: [
-        {
-          url: 'https://og-image-luigircruz.vercel.app/Renz.Dev.png?theme=light&packageManager=&packageName=&pattern=architect&style=style_1&description=Frontend+Software+Engineer&md=1&showWatermark=0&fontSize=100px&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI%2BCiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8%2BCiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8%2BCiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8%2BCiAgPC9nPgo8L3N2Zz4K%27',
-          width: 1200,
-          height: 630,
-          alt: ` - Preview Image`,
-        },
-      ],
-
-    },
-    twitter: {
-      card: 'summary_large_image',  
-
-      description,
-      images: "https://og-image-luigircruz.vercel.app/Renz.Dev.png?theme=light&packageManager=&packageName=&pattern=architect&style=style_1&description=Frontend+Software+Engineer&md=1&showWatermark=0&fontSize=100px&images=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI%2BCiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8%2BCiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8%2BCiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8%2BCiAgPC9nPgo8L3N2Zz4K%27",
-    },
-  };
-}
 
 export default async function RootLayout({
   children,
