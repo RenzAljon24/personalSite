@@ -36,7 +36,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "C:\\Users\\renz2\\portfolio\\next-sanity-test\\.next/types/**/*.ts"
-  ],
+, "sanity.cli.js"  ],
   "exclude": [
     "node_modules"
   ]
