@@ -1,9 +1,11 @@
-const Loading = () => {
-    return (
-        <div className="flex min-h-screen w-full items-center justify-center  dark:bg-slate-900 dark:text-white">
-            Loading...
-        </div>
-    )
+import HomeSkeleton from "@/components/ui/home-skeleton"
+
+const loading = () => {
+  return (
+    <div className="max-w-2xl mx-auto px-7 sm:px-8 mt-28">
+        <HomeSkeleton/>
+    </div>
+  )
 }
 
-export default Loading
+export default loading

@@ -4,8 +4,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/Header';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/sidebar';
-import { Suspense } from 'react';
-import Loading from './Loading';
+
+
 import Footer from '@/components/Footer';
 
 
@@ -63,9 +63,9 @@ export default async function RootLayout({
     
           </SidebarProvider>
           <main>
-            <Suspense fallback ={<Loading/>}>
+           
               {children}
-            </Suspense>
+           
           </main>
           <Footer/>
         </ThemeProvider>

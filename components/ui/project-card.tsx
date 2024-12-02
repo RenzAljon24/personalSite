@@ -2,6 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { getProjects } from "@/sanity/sanity-utils"
+import { Skeleton } from "./skeleton"
 export default async function ProjectCard({query}: {query: string}) {
     const projects = await getProjects({query})
 
@@ -12,7 +13,7 @@ export default async function ProjectCard({query}: {query: string}) {
     filteredProjects.map((project) => (
         <Link href={`/projects/${project.slug}`} key={project._id} className=" rounded-lg p-1 transition">
           <div className="m-2 ">
-            <h2 className="font-extrabold">{project.name}</h2> 
+            <h2 className="font-extrabold">{project.name || <Skeleton/>}</h2> 
           </div>
           {project.image && (
             <Image

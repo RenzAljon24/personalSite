@@ -2,6 +2,7 @@
 import { getBlogs } from "@/sanity/sanity-utils"
 import Link from "next/link";
 import Image from "next/image";
+import { Skeleton } from "./skeleton";
 
 
 export default async function BlogCard({query}: {query: string}) {
