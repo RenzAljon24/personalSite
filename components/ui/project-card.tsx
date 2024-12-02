@@ -5,7 +5,7 @@ import { getProjects } from "@/sanity/sanity-utils"
 export default async function ProjectCard({query}: {query: string}) {
     const projects = await getProjects({query})
 
-    const filteredProjects = projects.filter((project) => project.name.toLowerCase().includes(query.toLowerCase()))
+    const filteredProjects = projects.filter((project) => project.name.toLowerCase().includes((query || "").toLowerCase()))
     return (
         <>
     {filteredProjects.length > 0 ? (

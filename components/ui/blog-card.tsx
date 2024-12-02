@@ -7,7 +7,7 @@ import Image from "next/image";
 export default async function BlogCard({query}: {query: string}) {
     const blogs = await getBlogs({ query });
 
-    const filteredBlogs = blogs.filter((blog) => blog.name.toLowerCase().includes(query.toLowerCase()));
+    const filteredBlogs = blogs.filter((blog) => blog.name.toLowerCase().includes((query || "").toLowerCase()));
     return (
         <>
             {filteredBlogs.length > 0 ? (

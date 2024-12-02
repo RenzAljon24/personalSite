@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    ppr: true,
   },
   images: {
     remotePatterns: [
