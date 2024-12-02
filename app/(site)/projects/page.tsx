@@ -1,7 +1,8 @@
 
 import ProjectCard from "@/components/ui/project-card"
 import SearchInput from "@/components/ui/searchInput";
-export const experimental_ppr = true
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 export default async function Projects({searchParams}: {searchParams: {search: string}}) {
   const search = searchParams.search || "";
 const projectCardDate = await ProjectCard({query: search});

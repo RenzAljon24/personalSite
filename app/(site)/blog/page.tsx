@@ -1,5 +1,6 @@
 
-import { getBlogs } from "@/sanity/sanity-utils";
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 import SearchInput from "@/components/ui/searchInput";
 
 import BlogCard from "@/components/ui/blog-card";
