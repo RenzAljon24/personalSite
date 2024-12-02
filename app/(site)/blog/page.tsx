@@ -4,7 +4,7 @@ export const revalidate = 0;
 import SearchInput from "@/components/ui/searchInput";
 
 import BlogCard from "@/components/ui/blog-card";
-export const experimental_ppr = true
+
 export default async function Blogs({searchParams}: {searchParams: {search: string}}) {
 
   const search = searchParams.search || "";
