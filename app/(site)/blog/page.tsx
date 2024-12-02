@@ -1,11 +1,13 @@
-import { getProjects } from "@/sanity/sanity-utils"
-import Link from "next/link";
-import Image from "next/image";
-import { getBlogs } from "@/sanity/sanity-utils";
-import { formatDate } from "@/lib/utils";
 
-export default async function Blogs() {
-  const blogs = await getBlogs();
+import { getBlogs } from "@/sanity/sanity-utils";
+import SearchInput from "@/components/ui/searchInput";
+
+import BlogCard from "@/components/ui/blog-card";
+export default async function Blogs({searchParams}: {searchParams: {search: string}}) {
+
+  const search = searchParams.search || "";
+  
+  const singleBlogCardData = await BlogCard({query: search});
 
   return (
     <div className="max-w-2xl mx-auto px-7 sm:px-8 mt-32">
@@ -15,25 +17,9 @@ export default async function Blogs() {
           Hey there! Welcome to my blog. Here, I share my thoughts on various topics, from tech tips to personal. It’s a space for ideas and conversations, and I hope you find something interesting to read. Enjoy!
         </h1>
       </header>
-
-
-        <div className=" flex flex-col space-y-4 mb-10">{blogs.map((blog) => (
-        <Link href={`/blog/${blog.slug}`} key={blog._id} className="border-2 border-gray-500 rounded-lg p-1 hover:border-blue-500 transition">
-          <div className="mb-2 ml-2 ">
-            <h1 className="font-mono mt-1 ">published: {formatDate(blog._createdAt)}</h1>
-            <h1 className="font-extrabold">{blog.name}</h1>
-          </div>
-          {blog.image && (
-            <Image
-              src={blog.image}
-              alt={blog.name}
-              width={750}
-              height={100}
-              className="object-cover rounded-lg border border-gray-500"
-            />
-          )}
-        </Link>
-      ))}
+        <SearchInput placeholder="Search Blogs" />
+        <div className=" flex flex-col space-y-4 mb-10">
+          {singleBlogCardData}    
       </div>
     </div>
    

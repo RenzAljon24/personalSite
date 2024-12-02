@@ -59,7 +59,7 @@ export default async function RootLayout({
             <AppSidebar />
             {/* Ensure the button is rendered consistently */}
 
-              <SidebarTrigger className='fixed bottom-5 right-5 text-4xl rounded-full p-5 border border-gray-800 bg-slate-900 dark:bg-slate-800 text-zinc-50 md:hidden z-20 cursor-pointer '/>
+              <SidebarTrigger className='fixed bottom-5 right-5 text-4xl rounded-full p-5 border hover:bg-slate-700 hover:text-zinc-100 border-gray-800 bg-slate-900 dark:bg-slate-800 text-zinc-50 md:hidden z-20 cursor-pointer '/>
     
           </SidebarProvider>
           <main>

@@ -1,10 +1,9 @@
-import { getProjects } from "@/sanity/sanity-utils"
-import Link from "next/link";
-import Image from "next/image";
 
-export default async function Projects() {
-  const projects = await getProjects();
-
+import ProjectCard from "@/components/ui/project-card"
+import SearchInput from "@/components/ui/searchInput";
+export default async function Projects({searchParams}: {searchParams: {search: string}}) {
+  const search = searchParams.search || "";
+const projectCardDate = await ProjectCard({query: search});
   return (
     <div className="max-w-2xl mx-auto px-7 sm:px-8 mt-32">
         <header className="pb-10 font-serif">
@@ -14,22 +13,9 @@ export default async function Projects() {
           </h1>
         </header>
 
-        <div className=" flex flex-col space-y-4 mb-10">{projects.map((project) => (
-        <Link href={`/projects/${project.slug}`} key={project._id} className="border-2 border-gray-500 rounded-lg p-1 hover:border-blue-500 transition">
-          <div className="m-2 ">
-            <h2 className="font-extrabold">{project.name}</h2> 
-          </div>
-          {project.image && (
-            <Image
-              src={project.image}
-              alt={project.name}
-              width={750}
-              height={100}
-              className="object-cover rounded-lg border border-gray-500"
-            />
-          )}
-        </Link>
-      ))}
+        <SearchInput placeholder="Search Projects" />
+        <div className=" flex flex-col space-y-4 mb-10">
+          {projectCardDate}
       </div>
     </div>
    
