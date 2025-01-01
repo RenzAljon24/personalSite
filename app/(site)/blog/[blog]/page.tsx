@@ -1,7 +1,47 @@
 import { formatDate } from '@/lib/utils';
 import { getBlog } from '@/sanity/sanity-utils';
-import { PortableText } from '@portabletext/react';
+import { PortableText, toPlainText } from '@portabletext/react';
 import Image from "next/image"
+
+
+export async function generateMetadata(
+  { params }: { params: { blog: string } }
+) {
+  const slug = params.blog;
+  const blog = await getBlog(slug);
+
+  if (!blog) {
+    return {
+      title: "Project Not Found",
+      description: "The requested project could not be located.",
+    };
+  }
+
+  const plainTextContent =
+    Array.isArray(blog.content) ? toPlainText(blog.content) : blog.content;
+
+  return {
+    title: `Renz | ${blog.name || "Untitled Project"}`,
+    description: plainTextContent?.slice(0, 160) || "Explore this amazing project.",
+    openGraph: {
+      title: `Renz | ${blog.name}`,
+      description: plainTextContent?.slice(0, 160),
+      images: [
+        {
+          url: blog.image || "/default-thumbnail.png",
+          width: 1200,
+          height: 630,
+          alt: blog.name,
+        },
+      ],
+    },
+    twitter: {
+      title: `Renz | ${blog.name}`,
+      description: plainTextContent?.slice(0, 160),
+    },
+  };
+}
+
 
 type Props = {
   params: { blog: string }
