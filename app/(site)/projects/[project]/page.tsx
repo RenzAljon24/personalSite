@@ -70,7 +70,14 @@ export default async function Project({ params }: Props) {
     <Image src={project.image} alt={project.name} width={700} height={250} className="flex m-5 mx-auto border-2 border-gray-700 object-cover rounded-xl m" />
    
     <div className="text-lg text-gray-700 mt-5 dark:text-slate-100">
-      <PortableText value={project.content} />
+      <PortableText
+        value={project.content}
+        components={{
+          block: {
+            normal: ({ children }) => <p className="mb-6">{children}</p>,
+          },
+        }}
+      />
     </div>
 
     

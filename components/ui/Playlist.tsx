@@ -1,5 +1,4 @@
 "use client";
-import Loading from '@/app/(site)/Loading';
 import { Skeleton } from './skeleton';
 import { useState, useEffect } from 'react';
 export default function SpotifyPlaylist() {

@@ -58,7 +58,16 @@ export default async function Blog({ params }: Props) {
     <div className="text-lg text-gray-700 dark:text-slate-100">
     <h1 className="font-mono mt-1 text-gray-700 dark:text-gray-300 ">published: {formatDate(blog._createdAt)}</h1>
     <h1 className="text-slate-700 dark:text-slate-200 text-2xl md:text-5xl font-extrabold mt-16">{blog.name}</h1>
-    <h2 className='mt-16'><PortableText value={blog.content} /></h2>
+    <h2 className='mt-16'>
+      <PortableText
+      value={blog.content}
+      components={{
+        block: {
+          normal: ({ children }) => <p className="mb-6">{children}</p>,
+        },
+      }}
+    />
+    </h2>
     </div>
 
     
