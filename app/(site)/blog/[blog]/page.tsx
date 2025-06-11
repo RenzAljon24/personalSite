@@ -61,11 +61,31 @@ export default async function Blog({ params }: Props) {
     <h2 className='mt-16'>
       <PortableText
       value={blog.content}
-      components={{
-        block: {
-          normal: ({ children }) => <p className="mb-6">{children}</p>,
-        },
-      }}
+          components={{
+            block: {
+              normal: ({ children }) => (
+                <p className="mb-6 text-slate-700 dark:text-slate-300 leading-relaxed">{children}</p>
+              ),
+              h1: ({ children }) => (
+                <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 mt-12">{children}</h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 mt-10">{children}</h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 mt-8">{children}</h3>
+              ),
+            },
+            list: {
+              bullet: ({ children }) => <ul className="list-disc list-inside mb-6 space-y-2">{children}</ul>,
+              number: ({ children }) => <ol className="list-decimal list-inside mb-6 space-y-2">{children}</ol>,
+            },
+            listItem: {
+              bullet: ({ children }) => <li className="text-slate-700 dark:text-slate-300">{children}</li>,
+              number: ({ children }) => <li className="text-slate-700 dark:text-slate-300">{children}</li>,
+            },
+
+          }}
     />
     </h2>
     </div>
