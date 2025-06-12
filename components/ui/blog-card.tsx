@@ -1,36 +1,53 @@
-
+import Link from "next/link"
+import Image from "next/image"
 import { getBlogs } from "@/sanity/sanity-utils"
-import Link from "next/link";
-import Image from "next/image";
-import { Skeleton } from "./skeleton";
+import { ExternalLink } from "lucide-react"
 
+export default async function BlogCard({ query }: { query: string }) {
+  const blogs = await getBlogs({ query })
+  const filteredBlogs = blogs.filter((blog) => blog.name.toLowerCase().includes((query || "").toLowerCase()))
 
-export default async function BlogCard({query}: {query: string}) {
-    const blogs = await getBlogs({ query });
-
-    const filteredBlogs = blogs.filter((blog) => blog.name.toLowerCase().includes((query || "").toLowerCase()));
-    return (
-        <>
-            {filteredBlogs.length > 0 ? (
-            filteredBlogs.map((blog) => (
-            <Link href={`/blog/${blog.slug}`} key={blog._id} className=" rounded-lg p-1  transition">
-              <div className="mb-2 ml-2 ">
-               
-                <h1 className="font-extrabold">{blog.name}</h1>
-              </div>
+  return (
+    <>
+      {filteredBlogs.length > 0 ? (
+        filteredBlogs.map((blog) => (
+          <Link
+            href={`/blog/${blog.slug}`}
+            key={blog._id}
+            className="group block bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <div className="relative">
               {blog.image && (
                 <Image
-                  src={blog.image}
+                  src={blog.image || "/placeholder.svg"}
                   alt={blog.name}
-                  width={750}
+                  width={1500}
                   height={100}
-                  className="object-fill  rounded-lg border-[3px]  hover:border-blue-500 dark:hover:border-blue-400 w-full h-36 sm:h-56 duration-300"
+                  className="object-cover w-full h-48 sm:h-56 transition-transform duration-500 group-hover:scale-105"
                 />
               )}
-            </Link>
-          ))) : (
-            <p className="text-gray-500 dark:text-gray-400">No blogs found for {query}.</p>
-          )}
-        </>
-    )
+
+              <div className="absolute top-4 right-4 p-2 bg-white/90 dark:bg-slate-800/90 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <ExternalLink className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+              </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+
+            <div className="p-5">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+                {blog.name}
+              </h2>
+
+              <div className="flex justify-end text-teal-600 dark:text-teal-400 font-medium group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors">
+                Read Article →
+              </div>
+            </div>
+          </Link>
+        ))
+      ) : (
+        <p className="text-gray-500 dark:text-gray-400 p-4 text-center w-full">No blogs found for {query}.</p>
+      )}
+    </>
+  )
 }

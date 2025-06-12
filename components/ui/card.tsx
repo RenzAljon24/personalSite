@@ -150,4 +150,5 @@ async function CardGrid() {
   )
 }
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardGrid }
+export default Card;
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardGrid };
