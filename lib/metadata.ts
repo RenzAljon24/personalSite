@@ -9,7 +9,7 @@ export function generateMetadata({
   path?: string
   image?: string
 }) {
-  const baseUrl = "https://www.renzcruz.dev/"
+  const baseUrl = "https://www.renzcruz.dev"
   const url = `${baseUrl}${path}`
 
   // Generate dynamic OG image URL
