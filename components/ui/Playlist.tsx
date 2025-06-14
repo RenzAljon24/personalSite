@@ -121,7 +121,7 @@ export default function SpotifyPlaylist() {
       <header className="mb-8">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black sm:text-5xl dark:text-white">Playlists</h1>
         <p className="w-full text-gray-600 dark:text-gray-200 leading-relaxed">
-          I can't be productive without music, so this page is one of my favorites on my website. Below are some of my
+          I can&#39;t be productive without music, so this page is one of my favorites on my website. Below are some of my
           top-played songs on Spotify—tracks that keep me in the zone.
         </p>
       </header>
