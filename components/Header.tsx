@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className='fixed top-0 w-full bg-white/30 backdrop-blur-md  p-5  dark:bg-slate-900 dark:shadow-none z-10'>
       <div className='flex justify-between mx-5 md:mx-20 p-2'>
-          <div>
+          <div className='pt-1'>
               <Link href="/" className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">RC</span>
@@ -34,7 +34,7 @@ const Header = () => {
 
               
               {/* Contact Me button with mailto */}
-              <a href="mailto:rc4317809@gmail.com">
+              <a href="mailto:renzcruz.dev@gmail.com">
                 <button className='border border-slate-800 rounded-md p-2 dark:border-zinc-500 font-mono'>
                   Contact Me
                 </button>

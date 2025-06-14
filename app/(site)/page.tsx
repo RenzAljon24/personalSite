@@ -8,10 +8,10 @@ import { Github, Linkedin, Facebook, Instagram, ExternalLink, Mail } from "lucid
 
 export default function Home() {
   return (
-    <div className="max-w-2xl mx-auto px-7 sm:px-8 mt-28">
+    <div className="max-w-2xl mx-auto px-7 sm:px-8 mt-20">
       <section className="relative overflow-hidden">
         <div />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12  sm:pb-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12  sm:pb-20">
           <div className="text-center">
             <div className="mb-8">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 mb-6">
@@ -40,22 +40,6 @@ export default function Home() {
                   <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">100%</div>
                   <div className="text-sm text-slate-600 dark:text-slate-400">Client Satisfaction</div>
                 </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Button size="lg" className="bg-teal-600 hover:bg-teal-700 text-white">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Get In Touch
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-teal-600 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View Resume
-                </Button>
               </div>
 
               {/* Social Links */}

@@ -30,7 +30,7 @@ export default async function RootLayout({
               <AppSidebar />
               <main className="flex-1 w-full">{children}</main>
               <div className="fixed bottom-5 right-5 z-20 md:hidden">
-                <SidebarTrigger className="text-4xl rounded-full p-5 border hover:bg-slate-700 hover:text-zinc-100 border-gray-800 bg-slate-900 dark:bg-slate-800 text-zinc-50 cursor-pointer" />
+                <SidebarTrigger className="text-4xl rounded-full p-5 border hover:bg-slate-700 hover:text-zinc-100 border-gray-800 bg-slate-900 dark:bg-slate-700 text-zinc-50 cursor-pointer" />
               </div>
             </SidebarProvider>
           </div>
