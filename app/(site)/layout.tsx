@@ -7,13 +7,26 @@ import Header from "@/components/Header"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/sidebar"
 import Footer from "@/components/Footer"
-import { generateMetadata as createMetadata } from "@/lib/metadata"
 
-export const metadata = createMetadata({
-  title: "Renz Cruz - Software Developer",
-  description: "Discover a unique section of Renz's portfolio showcasing software engineering projects.",
-})
-
+export const metadata = {
+  title: "Personal Site",
+  description: "Welcome to my personal portfolio website.",
+  openGraph: {
+    title: "Personal Site",
+    description: "Welcome to my personal portfolio website.",
+    images: ["/opengraph-image.png"],
+    type: "website",
+    locale: "en_PH", // Changed to Philippines locale
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Personal Site",
+    description: "Welcome to my personal portfolio website.",
+    images: ["/opengraph-image.png"],
+  },
+  // Optionally, you can add a timezone property if your framework supports it
+  // timezone: "Asia/Manila",
+}
 export default async function RootLayout({
   children,
 }: {
