@@ -9,10 +9,10 @@ import { AppSidebar } from "@/components/sidebar"
 import Footer from "@/components/Footer"
 
 export const metadata = {
-  title: "Personal Site",
+  title: "Renz Cruz - Software Engineer",
   description: "Welcome to my personal portfolio website.",
   openGraph: {
-    title: "Personal Site",
+    title: "Renz Cruz - Software Engineer",
     description: "Welcome to my personal portfolio website.",
     images: ["/opengraph-image.png"],
     type: "website",
@@ -20,7 +20,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Personal Site",
+    title: "Renz Cruz - Software Engineer",
     description: "Welcome to my personal portfolio website.",
     images: ["/opengraph-image.png"],
   },
